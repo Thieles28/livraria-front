@@ -1,0 +1,17 @@
+# Ignorar diretórios
+node_modules/
+dist/
+build/
+
+# Ignorar arquivos específicos
+*.min.js
+*.map
+*.log
+
+# Ignorar arquivos de configuração do IDE
+.idea/
+.vscode/
+
+# Ignorar arquivos de teste
+**/*.test.js
+**/*.spec.js

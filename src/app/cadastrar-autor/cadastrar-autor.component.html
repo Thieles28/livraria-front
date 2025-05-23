@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="mb-32">{{ id ? 'Atualizar Autor' : 'Cadastrar Autor' }}</h4>
+    <form [formGroup]="autorForm">
+      <mat-form-field appearance="outline" class="w-100 fs-16">
+        <mat-label>Autor</mat-label>
+        <input formControlName="nome" matInput placeholder="Entre com nome do autor" type="text">
+      </mat-form-field>
+
+      <div *ngIf="mensagem" class="alert alert-success alert-text-success d-flex fs-14 align-items-center rounded mb-16"
+           role="alert">
+        <i-feather class="text-success feather-base me-12" name="check-circle"></i-feather>
+        {{ id ? 'Autor atualizado com sucesso!' : 'Autor cadastrado com sucesso!' }}
+      </div>
+      <button (click)="cadastrarAutor()" *ngIf="!id" [disabled]="autorForm.invalid" class="me-8 mb-8 cl"
+              color="primary" mat-raised-button>Cadastrar Autor
+      </button>
+      <button (click)="atualizarAutor()" *ngIf="id" [disabled]="autorForm.invalid" class="me-8 mb-8 cl"
+              color="primary" mat-raised-button>Atualizar Autor
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<!-- Daily Activity -->
+<mat-card class="w-100">
+  <mat-card-content>
+    <h4 class="mb-56">Gêneros</h4>
+
+    <div class="table-responsive">
+      <table [dataSource]="dataSource" class="text-nowrap w-100" mat-table matSort>
+        <!-- Gênero Column -->
+        <ng-container matColumnDef="genero">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header> Gênero</th>
+          <td *matCellDef="let element" mat-cell>
+            <p class="mb-0 fw-medium op-5">{{ element.nome }}</p>
+          </td>
+        </ng-container>
+
+        <!-- Ações Column -->
+        <ng-container matColumnDef="acoes">
+          <th *matHeaderCellDef mat-header-cell> Ações</th>
+          <td *matCellDef="let element" mat-cell>
+            <a class="m-r-8 cursor-pointer">
+              <i-feather (click)="visualizarGenero(element.id)" class="mt-n3 feather-base text-dark"
+                         name="search"></i-feather>
+            </a>
+            <a class="m-r-8 cursor-pointer">
+              <i-feather (click)="atualizarGenero(element.id)" class="mt-n3 feather-base text-dark"
+                         name="edit"></i-feather>
+            </a>
+            <a class="m-r-8 cursor-pointer">
+              <i-feather (click)="removerGenero(element.id)" class="mt-n3 feather-base text-dark"
+                         name="trash"></i-feather>
+            </a>
+          </td>
+        </ng-container>
+
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+      </table>
+      <mat-paginator (page)="listarGenero()" [pageSizeOptions]="[3, 5, 10, 25, 100]"
+                     showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

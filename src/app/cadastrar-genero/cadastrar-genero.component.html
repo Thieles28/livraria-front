@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="mb-32">{{ id ? 'Atualizar Gênero' : 'Cadastrar Gênero' }}</h4>
+    <form [formGroup]="generoForm">
+      <mat-form-field appearance="outline" class="w-100 fs-16">
+        <mat-label>Gênero</mat-label>
+        <input formControlName="nome" matInput placeholder="Entre com titulo do livro" type="text">
+      </mat-form-field>
+      <div *ngIf="mensagem" class="alert alert-success alert-text-success d-flex fs-14 align-items-center rounded mb-16"
+           role="alert">
+        <i-feather class="text-success feather-base me-12" name="check-circle"></i-feather>
+        {{ id ? 'Gênero atualizado com sucesso!' : 'Gênero cadastrado com sucesso!' }}
+      </div>
+      <button (click)="cadastrarGenero()" *ngIf="!id" [disabled]="generoForm.invalid" class="me-8 mb-8 cl"
+              color="primary" mat-raised-button>Cadastrar Gênero
+      </button>
+      <button (click)="atualizarGenero()" *ngIf="id" [disabled]="generoForm.invalid" class="me-8 mb-8 cl"
+              color="primary" mat-raised-button>Atualizar Gênero
+      </button>
+    </form>
+  </div>
+</div>

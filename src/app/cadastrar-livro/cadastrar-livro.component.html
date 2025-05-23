@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="mb-32">{{ id ? 'Atualizar Livro' : 'Cadastrar Livro' }}</h4>
+    <form [formGroup]="livrariaForm">
+      <mat-form-field appearance="outline" class="w-100 fs-16">
+        <mat-label>Titulo</mat-label>
+        <input formControlName="titulo" matInput placeholder="Entre com titulo do livro" type="text">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100 fs-16">
+        <mat-label>Autor</mat-label>
+        <mat-select formControlName="autor">
+          <mat-option *ngFor="let autor of autores" [value]="autor">
+            {{ autor.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100 fs-16">
+        <mat-label>Gênero</mat-label>
+        <mat-select formControlName="genero">
+          <mat-option *ngFor="let genero of generos" [value]="genero">
+            {{ genero.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div *ngIf="mensagem" class="alert alert-success alert-text-success d-flex fs-14 align-items-center rounded mb-16"
+           role="alert">
+        <i-feather class="text-success feather-base me-12" name="check-circle"></i-feather>
+        {{ id ? 'Livro atualizado com sucesso!' : 'Livro cadastrado com sucesso!' }}
+      </div>
+      <button (click)="cadastrarLivro()" *ngIf="!id" [disabled]="livrariaForm.invalid" class="me-8 mb-8 cl"
+              color="primary" mat-raised-button>Cadastrar Livro
+      </button>
+      <button (click)="atualizarLivro()" *ngIf="id" [disabled]="livrariaForm.invalid" class="me-8 mb-8 cl"
+              color="primary" mat-raised-button>Atualizar Livro
+      </button>
+    </form>
+  </div>
+</div>
