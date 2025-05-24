@@ -12,7 +12,7 @@ export class DialogAutorComponent implements OnInit {
   declare autor: Autor;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: { generoId: number },
+    @Inject(MAT_DIALOG_DATA) public data: { autorId: number },
     private livrariaService: LivrariaService
   ) {}
 
@@ -21,8 +21,8 @@ export class DialogAutorComponent implements OnInit {
   }
 
   consultarAutor() {
-    if (this.data.generoId != null) {
-      this.livrariaService.consultarAutor(this.data.generoId).subscribe((autor: Autor) => {
+    if (this.data.autorId != null) {
+      this.livrariaService.consultarAutor(this.data.autorId).subscribe((autor: Autor) => {
         this.autor = autor;
       });
     }

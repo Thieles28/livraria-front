@@ -1,43 +1,48 @@
-<mat-grid-list cols="1" rowHeight="5:2" align="center" justify="center">
+<mat-grid-list align="center" cols="1" justify="center" rowHeight="5:2">
   <mat-grid-tile>
     <div class="card">
       <div class="card-body">
         <form [formGroup]="loginForm">
-          <h4 class="mb-32">Bem-vindo App</h4>
-          <span class="d-block f-w-500 d-block m-t-10 m-b-30">Novo no App?
+          <h4 class="mb-32">Bem-vindo Livraria</h4>
+          <span class="d-block f-w-500 d-block m-t-10 m-b-30">Novo na Livraria?
             <a class="text-decoration-none text-accent f-w-500 f-s-14" routerLink="/register"> Crie a sua conta
               aqui</a>
           </span>
-          <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-form-field appearance="outline" class="w-100 fs-16">
             <mat-label>Email</mat-label>
-            <input matInput type="text" formControlName="email" placeholder="Entre com usuário">
-            <mat-error class="fs-12" *ngIf="loginForm.get('email')?.hasError('required')">
+            <input formControlName="email" matInput placeholder="Entre com usuário" type="text">
+            <mat-error *ngIf="loginForm.get('email')?.hasError('required')" class="fs-12">
               O email é obrigatório.
             </mat-error>
-            <mat-error class="fs-12" *ngIf="loginForm.get('email')?.hasError('email')">
+            <mat-error *ngIf="loginForm.get('email')?.hasError('email')" class="fs-12">
               Email inválido.
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field class="w-100 fs-16" appearance="outline">
-            <mat-label>Password</mat-label>
-            <input matInput type="password" formControlName="password" placeholder="Enter your password">
-            <mat-error class="fs-12" *ngIf="loginForm.get('password')?.hasError('required')">
+          <mat-form-field appearance="outline" class="w-100 fs-16">
+            <mat-label>Senha</mat-label>
+            <input formControlName="password" matInput placeholder="Enter your password" type="password">
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')" class="fs-12">
               A senha é obrigatória.
             </mat-error>
-            <mat-error class="fs-12" *ngIf="loginForm.get('password')?.hasError('minlength')">
+            <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')" class="fs-12">
               A senha deve ter pelo menos 6 caracteres.
             </mat-error>
-            <mat-error class="fs-12" *ngIf="loginForm.get('password')?.hasError('incorrectPassword')">
+            <mat-error *ngIf="loginForm.get('password')?.hasError('incorrectPassword')" class="fs-12">
               Senha incorreta. Por favor, verifique novamente.
             </mat-error>
           </mat-form-field>
-          <div class="alert alert-danger alert-text-danger d-flex fs-14 align-items-center rounded mb-16" role="alert" *ngIf="message">
-            <i-feather name="x-circle" class="text-danger feather-base me-12"></i-feather>
+          <div *ngIf="message"
+               class="alert alert-danger alert-text-danger d-flex fs-14 align-items-center rounded mb-16"
+               role="alert">
+            <i-feather class="text-danger feather-base me-12" name="x-circle"></i-feather>
             Usuário inválido!
           </div>
 
-          <button mat-raised-button class="w-100 me-8 mb-8 fw-normal" color="primary" [disabled]="loginForm.invalid" (click)="authentication()">Enter</button>
+          <button (click)="authentication()" [disabled]="loginForm.invalid" class="w-100 me-8 mb-8 fw-normal"
+                  color="primary"
+                  mat-raised-button>Entrar
+          </button>
         </form>
       </div>
     </div>

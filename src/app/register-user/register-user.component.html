@@ -1,41 +1,46 @@
 <div class="card">
   <div class="card-body">
-    <h4 class="mb-32">{{ id ? 'Update User' : 'Register User' }}</h4>
+    <h4 class="mb-32">{{ id ? 'Update User' : 'Registrar Usuário' }}</h4>
     <form [formGroup]="userForm">
-      <mat-form-field class="w-100 fs-16" appearance="outline">
-        <mat-label>First Name</mat-label>
-        <input matInput type="text" formControlName="firstName" placeholder="Entre com nome">
+      <mat-form-field appearance="outline" class="w-100 fs-16">
+        <mat-label>Nome</mat-label>
+        <input formControlName="firstName" matInput placeholder="Entre com nome" type="text">
       </mat-form-field>
 
-      <mat-form-field class="w-100 fs-16" appearance="outline">
-        <mat-label>Last Name</mat-label>
-        <input matInput type="text" formControlName="lastName" placeholder="Entre com sobrenome">
+      <mat-form-field appearance="outline" class="w-100 fs-16">
+        <mat-label>Sobrenome</mat-label>
+        <input formControlName="lastName" matInput placeholder="Entre com sobrenome" type="text">
       </mat-form-field>
 
-      <mat-form-field class="w-100 fs-16" appearance="outline">
+      <mat-form-field appearance="outline" class="w-100 fs-16">
         <mat-label>Email</mat-label>
-        <input matInput type="text" formControlName="email" placeholder="Entre com email">
+        <input formControlName="email" matInput placeholder="Entre com email" type="text">
       </mat-form-field>
 
-      <mat-form-field class="w-100 fs-16" appearance="outline">
-        <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password" placeholder="Entre com senha">
+      <mat-form-field appearance="outline" class="w-100 fs-16">
+        <mat-label>Senha</mat-label>
+        <input formControlName="password" matInput placeholder="Entre com senha" type="password">
       </mat-form-field>
 
-      <mat-form-field class="w-100 fs-16" appearance="outline">
-        <mat-label>Role</mat-label>
+      <mat-form-field appearance="outline" class="w-100 fs-16">
+        <mat-label>Permissão</mat-label>
         <mat-select formControlName="role">
           <mat-option value="USER">Usuário</mat-option>
           <mat-option value="ADMIN">Administrador</mat-option>
         </mat-select>
       </mat-form-field>
 
-      <div class="alert alert-success alert-text-success d-flex fs-14 align-items-center rounded mb-16" role="alert" *ngIf="message">
-        <i-feather name="check-circle" class="text-success feather-base me-12"></i-feather>
+      <div *ngIf="message" class="alert alert-success alert-text-success d-flex fs-14 align-items-center rounded mb-16"
+           role="alert">
+        <i-feather class="text-success feather-base me-12" name="check-circle"></i-feather>
         {{ id ? 'Usuário atualizado com sucesso!' : 'Usuário cadastrado com sucesso!' }}
       </div>
-      <button mat-raised-button class="me-8 mb-8 cl"  color="primary" [disabled]="userForm.invalid" (click)="registerNewUser()" *ngIf="!id">Register User</button>
-      <button mat-raised-button class="me-8 mb-8 cl"  color="primary" [disabled]="userForm.invalid" (click)="updateUser()" *ngIf="id">Update User</button>
+      <button (click)="registerNewUser()" *ngIf="!id" [disabled]="userForm.invalid" class="me-8 mb-8 cl"
+              color="primary" mat-raised-button>Registrar Usuário
+      </button>
+      <button (click)="updateUser()" *ngIf="id" [disabled]="userForm.invalid" class="me-8 mb-8 cl"
+              color="primary" mat-raised-button>Atualizar Usuário
+      </button>
     </form>
   </div>
 </div>

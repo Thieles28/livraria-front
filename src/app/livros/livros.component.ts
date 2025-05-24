@@ -60,7 +60,7 @@ export class livrosComponent implements AfterViewInit {
   visualizarLivros(id: Number) {
     const dialogRef = this.dialog.open(DialogLivrosComponent, {
       data: { livroId: id },
-      width: '600px',
+      width: '800px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {

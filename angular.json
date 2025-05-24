@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Flexy-admin-angular-lite": {
+    "Livraria-front": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
             "allowedCommonJsDependencies": [
               "apexcharts"
             ],
-            "outputPath": "dist/flexy-admin-angular-lite",
+            "outputPath": "dist/livraria-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Flexy-admin-angular-lite:build:production"
+              "browserTarget": "Livraria-front:build:production"
             },
             "development": {
-              "browserTarget": "Flexy-admin-angular-lite:build:development"
+              "browserTarget": "Livraria-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Flexy-admin-angular-lite:build"
+            "browserTarget": "Livraria-front:build"
           }
         },
         "test": {

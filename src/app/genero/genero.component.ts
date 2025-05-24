@@ -60,7 +60,7 @@ export class GeneroComponent implements AfterViewInit {
   visualizarGenero(id: Number) {
     const dialogRef = this.dialog.open(DialogGeneroComponent, {
       data: { generoId: id },
-      width: '600px',
+      width: '350px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {

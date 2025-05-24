@@ -60,7 +60,7 @@ export class AutorComponent implements AfterViewInit {
   visualizarAutor(id: Number) {
     const dialogRef = this.dialog.open(DialogAutorComponent, {
       data: { autorId: id },
-      width: '600px',
+      width: '350px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
